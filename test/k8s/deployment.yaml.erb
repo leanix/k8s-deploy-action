@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-deploy-action-test
+  actionId: "<%= version %>"
+spec:
+  selector:
+    matchLabels:
+      app: k8s-deploy-action-test
+  template:
+    metadata:
+      labels:
+        app: k8s-deploy-action-test
+    spec:
+      containers:
+        - name: k8s-deploy-action-test
+          image: "nginx:stable-alpine"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+          resources:
+            limits:
+              memory: "128i"
+              cpu: "1"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: config-volume
+          configMap:
+            name: nginx-config
+      serviceAccountName: default
