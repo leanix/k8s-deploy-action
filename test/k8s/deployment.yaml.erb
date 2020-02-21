@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-deploy-action-test
-  actionId: "<%= version %>"
+  labels:
+    actionId: "<%= version %>"
 spec:
   selector:
     matchLabels:
