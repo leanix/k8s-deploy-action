@@ -11,7 +11,7 @@ inputs:
   k8s_template_directory:
     description: 'Directory containing the kubernetes deployment files'
     required: true
-    default: 'k8s_deployment'
+    default: 'k8s-deployment'
   vault_secret_keys:
     description: 'Vault secret keys to provide as k8s secrets'
     required: false

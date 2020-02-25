@@ -17,7 +17,7 @@ jobs:
       - name: Use k8s deploy action
         uses: ./
         with:
-          k8s_template_directory: test/k8s
-          k8s_namespace: k8s-deploy-test
-          k8s_environment: test
-          k8s_version: ${{ github.run_number }}
+          template_directory: test/k8s
+          namespace: k8s-deploy-test
+          environment: test
+          version: ${{ github.run_number }}
