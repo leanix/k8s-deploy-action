@@ -17,4 +17,4 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://leanix/k8s-deploy:feature-hook-1331-enable-k8s-deploy-action-latest'
+  image: 'docker://leanix/k8s-deploy:latest'

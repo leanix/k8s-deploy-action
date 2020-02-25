@@ -14,7 +14,7 @@ A simple deployment definition would look like:
 - name: Use k8s deploy action
   uses: leanix/k8s-deploy-action@master
   with:
-    namespace: utopia
+    namespace: myapp1
     environment: test
 ```
 
@@ -30,14 +30,14 @@ A simple deployment definition would look like:
 Normally you must only define the namespace, that was provisioned for you and the action will find out, which clusters
 your namespace is registered for:
 
-* namespace            Namespace to use on that cluster
+* `namespace`            Namespace to use on that cluster
 
 Sometimes it may be necessary to add one of the following optional filters to only deploy to a subset of clusters:
 
-* environment          Only deploy to a specific environment (e.g. prod or test)
-* region               Only deploy to a specific region (e.g. westeurope)
-* cluster              Only deploy to a specific cluster (e.g. aks-westeurope-cluster-name) 
-* cluster_tag          Only deploy to a cluster with a specific tag (e.g. router) 
+* `environment`          Only deploy to a specific environment (e.g. prod or test)
+* `region`               Only deploy to a specific region (e.g. westeurope)
+* `cluster`              Only deploy to a specific cluster (e.g. aks-westeurope-cluster-name) 
+* `cluster_tag`          Only deploy to a cluster with a specific tag (e.g. router) 
 
 ### Kubernetes Manifests
 
@@ -46,8 +46,8 @@ As we use the tool kubernetes-deploy, the manifests are evaluated using ERB. For
 https://github.com/Shopify/kubernetes-deploy#using-templates-and-variables or https://en.wikipedia.org/wiki/ERuby.
 The following input variables are used to configure the rendering of the manifests: 
 
-* template_directory   Directory where the manifests have been mounted
-* <any_name>           Additional parameters to provide for the templates
+* `template_directory`   Directory where the manifests have been mounted
+* `<any_name>`           Additional parameters to provide for the templates
 
 The action will pass <any_name> input variable to the kubernetes-deploy rendering engine.
 You can reference it in lower case, e.g. given the input variable "some_tag":
@@ -74,7 +74,7 @@ There is a number of default variables that is available by default:
 To avoid defining secrets as clear text in your manifests, this action is able to load secrets from Azure Key Vault and create 
 kubernetes secrets during deployment.
 
-* vault_secret_keys   List of Azure Key Vault secret names (e.g. "secret-name-1 secret-name-2")
+* `vault_secret_keys`   List of Azure Key Vault secret names (e.g. "secret-name-1 secret-name-2")
 
 This will deploy a kubernetes secret like this:
 
