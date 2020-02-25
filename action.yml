@@ -1,14 +1,14 @@
 name: 'LeanIX k8s deploy'
 description: 'Perform deployment to kubernetes cluster'
 inputs:
-  k8s_namespace:
+  namespace:
     description: 'kubernetes namespace'
     required: true
-  k8s_environment:
+  environment:
     description:  'The cluster environment, e.g. test or prod'
     required: true
     default: 'test'
-  k8s_template_directory:
+  template_directory:
     description: 'Directory containing the kubernetes deployment files'
     required: true
     default: 'k8s-deployment'
