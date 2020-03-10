@@ -69,6 +69,12 @@ There is a number of default variables that is available by default:
 * `timestamp`   A unix timestamp generated when the deployment starts
 * `subdomain`   To improve routing consistency we expose a subdomain defaulting to namespace-environment-region, e.g. foobar-prod-westeurope
 
+## Testing the Manifests / Dry run mode
+
+If you just want to test your deployment but not actually run it, use the following environment variable:
+
+* `dry_run`             Only validate and render the templates, not actually deploying to any cluster
+
 ### Kubernetes Secrets From Azure Key Vault
 
 To avoid defining secrets as clear text in your manifests, this action is able to load secrets from Azure Key Vault and create 
