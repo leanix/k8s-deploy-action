@@ -39,6 +39,11 @@ Sometimes it may be necessary to add one of the following optional filters to on
 * `cluster`              Only deploy to a specific cluster (e.g. aks-westeurope-cluster-name) 
 * `cluster_tag`          Only deploy to a cluster with a specific tag (e.g. router) 
 
+Also, although it is highly discouraged, you can deploy two sets of manifests to the same namespace by using a "selector".
+See https://github.com/Shopify/krane/tree/v0.31.1#sharing-a-namespace for more details.
+
+* `selector`             Only consider resources having a certain set of labels when updating/pruning resources in the target namespace (e.g. k1=v1,k2=v2)
+
 ### Kubernetes Manifests
 
 The manifests to deploy have to be provided in the defined `template_directory`.
