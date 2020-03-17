@@ -105,3 +105,7 @@ This action requires following GitHub actions in advance:
 
 ## See also
 This action uses [leanix-k8s-deploy](https://github.com/leanix/leanix-k8s-deploy).
+
+## Copyright and license
+
+Copyright 2020 LeanIX GmbH under the [Unlicense license](LICENSE).
