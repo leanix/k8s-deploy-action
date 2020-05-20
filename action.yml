@@ -15,6 +15,9 @@ inputs:
   vault_secret_keys:
     description: 'Vault secret keys to provide as k8s secrets'
     required: false
+  dry_run:
+    description: 'Set to true for dry run mode: Only validate and render the templates, not actually deploying to any cluster'
+    required: false
 runs:
   using: 'docker'
   image: 'docker://leanix/k8s-deploy:latest'
