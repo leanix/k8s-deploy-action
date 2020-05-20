@@ -14,6 +14,15 @@ jobs:
         with:
           secret-store-credentials: ${{ secrets.INJECTED_SECRET_STORE_CREDENTIALS }}
 
+      - name: Use k8s deploy action dry_run
+        uses: ./
+        with:
+          template_directory: test/k8s
+          namespace: k8s-deploy-test
+          environment: test
+          dry_run: true
+          version: ${{ github.run_number }}
+
       - name: Use k8s deploy action
         uses: ./
         with:
