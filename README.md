@@ -24,6 +24,7 @@ A simple deployment definition would look like:
 |environment|yes|test|The cluster environment to use (e.g. test or prod)|
 |template_directory|yes|k8s-deployment|Directory that contains the manifests to deploy. [see](#kubernetes-manifests)|
 |vault_secret_keys|no|-|List of Azure Key Vault secret names to inject as k8s secrets. [see](#kubernetes-secrets-from-azure-key-vault)|
+|dry_run|no|-|Set to true for dry run mode: Only validate and render the templates, not actually deploying to any cluster|
 
 ### Configure deployment target
 
@@ -74,7 +75,7 @@ There is a number of default variables that is available by default:
 * `timestamp`   A unix timestamp generated when the deployment starts
 * `subdomain`   To improve routing consistency we expose a subdomain defaulting to namespace-environment-region, e.g. foobar-prod-westeurope
 
-## Testing the Manifests / Dry run mode
+### Testing the Manifests / Dry run mode
 
 If you just want to test your deployment but not actually run it, use the following environment variable:
 
