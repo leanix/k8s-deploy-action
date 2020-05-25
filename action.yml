@@ -12,6 +12,9 @@ inputs:
     description: 'Directory containing the kubernetes deployment files'
     required: true
     default: 'k8s-deployment'
+  region:
+    description:  'The region defining the cluster to deploy to, e.g. westeurope or australiaeast. Leave empty to deploy to all regions.'
+    required: false
   vault_secret_keys:
     description: 'Vault secret keys to provide as k8s secrets'
     required: false
