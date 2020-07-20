@@ -1,13 +1,13 @@
 # LeanIX Kubernetes Deploy Action
 
-This action provides a standard way for Kubernetes deployments. The deployment process uses azure-cli to access the cluster and 
-kubernetes-shopify to roll out the manifest definition. All configuration for the deployment is provided using action input 
+This action provides a standard way for Kubernetes deployments. The deployment process uses azure-cli to access the cluster and
+kubernetes-shopify to roll out the manifest definition. All configuration for the deployment is provided using action input
 variables. The kubernetes manifests are provided in a separate directory of the git repository (e.g. k8s-deployment).
 
 ## Usage
 
-This action will use the injected secrets within the GitHub workflow environment to access a kubernetes cluster for deployment. 
-Use in advance the provided [leanix/secrets-action](https://github.com/leanix/secrets-action) to inject the required secrets. 
+This action will use the injected secrets within the GitHub workflow environment to access a kubernetes cluster for deployment.
+Use in advance the provided [leanix/secrets-action](https://github.com/leanix/secrets-action) to inject the required secrets.
 
 A simple deployment definition would look like:
 ```yaml
@@ -25,6 +25,7 @@ A simple deployment definition would look like:
 |template_directory|yes|k8s-deployment|Directory that contains the manifests to deploy. [see](#kubernetes-manifests)|
 |vault_secret_keys|no|-|List of Azure Key Vault secret names to inject as k8s secrets. [see](#kubernetes-secrets-from-azure-key-vault)|
 |dry_run|no|-|Set to true for dry run mode: Only validate and render the templates, not actually deploying to any cluster|
+|disable_validation|no|-|Set to true for disabling the validate and render the templates option during the deployment.|
 
 ### Configure deployment target
 
@@ -37,8 +38,8 @@ Sometimes it may be necessary to add one of the following optional filters to on
 
 * `environment`          Only deploy to a specific environment (e.g. prod or test)
 * `region`               Only deploy to a specific region (e.g. westeurope)
-* `cluster`              Only deploy to a specific cluster (e.g. aks-westeurope-cluster-name) 
-* `cluster_tag`          Only deploy to a cluster with a specific tag (e.g. router) 
+* `cluster`              Only deploy to a specific cluster (e.g. aks-westeurope-cluster-name)
+* `cluster_tag`          Only deploy to a cluster with a specific tag (e.g. router)
 
 Also, although it is highly discouraged, you can deploy two sets of manifests to the same namespace by using a "selector".
 See https://github.com/Shopify/krane/tree/v0.31.1#sharing-a-namespace for more details.
@@ -50,7 +51,7 @@ See https://github.com/Shopify/krane/tree/v0.31.1#sharing-a-namespace for more d
 The manifests to deploy have to be provided in the defined `template_directory`.
 As we use the tool kubernetes-deploy, the manifests are evaluated using ERB. For more information on that see
 https://github.com/Shopify/kubernetes-deploy#using-templates-and-variables or https://en.wikipedia.org/wiki/ERuby.
-The following input variables are used to configure the rendering of the manifests: 
+The following input variables are used to configure the rendering of the manifests:
 
 * `template_directory`   Directory where the manifests have been mounted
 * `<any_name>`           Additional parameters to provide for the templates
@@ -83,7 +84,7 @@ If you just want to test your deployment but not actually run it, use the follow
 
 ### Kubernetes Secrets From Azure Key Vault
 
-To avoid defining secrets as clear text in your manifests, this action is able to load secrets from Azure Key Vault and create 
+To avoid defining secrets as clear text in your manifests, this action is able to load secrets from Azure Key Vault and create
 kubernetes secrets during deployment.
 
 * `vault_secret_keys`   List of Azure Key Vault secret names (e.g. "secret-name-1 secret-name-2")
