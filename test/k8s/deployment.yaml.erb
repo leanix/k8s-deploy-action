@@ -15,7 +15,7 @@ spec:
       labels:
         app: k8s-deploy-action-test
     spec:
-    automountServiceAccountToken: false
+      automountServiceAccountToken: false
       containers:
         - name: k8s-deploy-action-test
           image: "nginx:stable-alpine"
