@@ -10,8 +10,8 @@ spec:
       app: k8s-deploy-action-test
   template:
     metadata:
-    annotations:
-      cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
       labels:
         app: k8s-deploy-action-test
     spec:
