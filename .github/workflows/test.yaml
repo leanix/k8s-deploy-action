@@ -29,4 +29,5 @@ jobs:
           template_directory: test/k8s
           namespace: k8s-deploy-test
           environment: test
+          disable_validation: true
           version: ${{ github.run_number }}
