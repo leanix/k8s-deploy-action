@@ -5,7 +5,7 @@ inputs:
     description: 'kubernetes namespace'
     required: true
   environment:
-    description:  'The cluster environment, e.g. test or prod'
+    description: 'The cluster environment, e.g. test or prod'
     required: true
     default: 'test'
   template_directory:
@@ -13,13 +13,16 @@ inputs:
     required: true
     default: 'k8s-deployment'
   region:
-    description:  'The region defining the cluster to deploy to, e.g. westeurope or australiaeast. Leave empty to deploy to all regions.'
+    description: 'The region defining the cluster to deploy to, e.g. westeurope or australiaeast. Leave empty to deploy to all regions.'
     required: false
   vault_secret_keys:
     description: 'Vault secret keys to provide as k8s secrets'
     required: false
   dry_run:
     description: 'Set to true for dry run mode: Only validate and render the templates, not actually deploying to any cluster'
+    required: false
+  disable_validation:
+    description: 'Set to true for disabling the validate and render the templates option during the deployment.'
     required: false
 runs:
   using: 'docker'
