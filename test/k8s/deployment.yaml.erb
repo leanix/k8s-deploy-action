@@ -18,7 +18,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: k8s-deploy-action-test
-          image: "nginx:stable-alpine"
+          image: "docker.io/nginx:stable-alpine"
           volumeMounts:
             - name: config-volume
               mountPath: /etc/nginx/nginx.conf
