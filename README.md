@@ -76,7 +76,7 @@ There is a number of default variables that is available by default:
 * `timestamp`             A unix timestamp generated when the deployment starts
 * `subdomain`             To improve routing consistency we expose a subdomain defaulting to namespace-environment-region, e.g. foobar-prod-westeurope
 * `cluster_version`       The kubernetes version running the cluster, e.g. 1.18.10
-* `region_shortname`      The shortname of the region that the manifest is currently being deployed to, e.g. eu
+* `region_shortname`      The shortname of the region that the manifest is currently being deployed to, e.g. eu or horizon
 * `timezone`              The timezone of the region that the manifest is currently being deployed to, e.g. Europe/Berlin
 * `svc_host`              The hostname of the svc running in that region, e.g. eu-svc.leanix.net or horizon-svc.leanix.net
 * `default_instance_host` The hostname of the default pathfinder instance that is running in that region, e.g. eu.leanix.net or horizon-sandbox.leanix.net
