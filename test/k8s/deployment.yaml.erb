@@ -4,6 +4,10 @@ metadata:
   name: k8s-deploy-action-test
   labels:
     actionId: "<%= version %>"
+    tier: proxy
+    region_short: "<%= region_shortname %>"
+    region: "<%= region %>"
+    time_zone: "<%= timezone %>"
 spec:
   selector:
     matchLabels:
