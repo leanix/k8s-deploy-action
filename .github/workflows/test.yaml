@@ -23,11 +23,20 @@ jobs:
           dry_run: true
           version: ${{ github.run_number }}
 
-      - name: Use k8s deploy action
+      - name: Use k8s deploy action disable_validation
         uses: ./
         with:
           template_directory: test/k8s
           namespace: k8s-deploy-test
           environment: test
           disable_validation: true
+          version: ${{ github.run_number }}
+
+      - name: Use k8s deploy action selector
+        uses: ./
+        with:
+          template_directory: test/k8s
+          namespace: k8s-deploy-test
+          environment: test
+          selector: tier=proxy
           version: ${{ github.run_number }}
