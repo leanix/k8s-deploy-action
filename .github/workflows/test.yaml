@@ -32,7 +32,7 @@ jobs:
           disable_validation: true
           version: ${{ github.run_number }}
 
-      - name: Use k8s deploy action disable_validation
+      - name: Use k8s deploy action selector
         uses: ./
         with:
           template_directory: test/k8s
