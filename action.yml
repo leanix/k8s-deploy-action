@@ -26,4 +26,4 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://leanix/k8s-deploy:krane-2-1-4-latest'
+  image: 'docker://leanix/k8s-deploy:latest'
