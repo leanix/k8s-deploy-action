@@ -26,4 +26,4 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://leanix/k8s-deploy:latest'
+  image: 'docker://leanixacrpublic.azurecr.io/k8s-deploy:latest'
